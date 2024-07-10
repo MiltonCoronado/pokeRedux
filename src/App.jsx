@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { useEffect } from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { Col } from 'antd';
 import { Searcher } from './components/Searcher.jsx';
 import { PokemonList } from './components/PokemonList.jsx';
@@ -8,16 +8,15 @@ import { setPokemonsActions } from './actions/creators.jsx';
 import logo from './statics/logo.svg';
 import './App.css';
 
-const App = ({ pokemons, setPokemons }) => {
-  // const [pokemons, setPokemons] = useState([]);
-
-  console.log({ pokemons })
+const App = () => {//({ pokemons, setPokemons }) con connect se usa props.
+  const pokemons = useSelector(state => state.pokemons);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchPokemons = async () => {
       const pokemonsResponse = await
        getPokemon();
-      setPokemons(pokemonsResponse);
+       dispatch(setPokemonsActions(pokemonsResponse));
     };
 
     fetchPokemons(); 
@@ -36,17 +35,17 @@ const App = ({ pokemons, setPokemons }) => {
   )
 };
 
-const mapStateToProps = (state) => ({//Esta función mapea el estado de Redux a las props del componente. Es útil cuando necesitas acceder a partes del estado de Redux dentro de tu componente.
-  pokemons: state.pokemons,
-});
+// const mapStateToProps = (state) => ({//Esta función mapea el estado de Redux a las props del componente. Es útil cuando necesitas acceder a partes del estado de Redux dentro de tu componente.
+//   pokemons: state.pokemons,
+// });
 
-const mapDispachToProps = (dispatch) => ({//Esta función mapea las acciones de Redux a las props del componente. Es útil cuando necesitas despachar acciones desde tu componente.
-  setPokemons: (value) => dispatch(setPokemonsActions(value))
-});
-
-
-const connectedApp = connect(mapStateToProps, mapDispachToProps)(App);
-export { connectedApp as App };
+// const mapDispachToProps = (dispatch) => ({//Esta función mapea las acciones de Redux a las props del componente. Es útil cuando necesitas despachar acciones desde tu componente.
+//   setPokemons: (value) => dispatch(setPokemonsActions(value))
+// });
 
 
+// const connectedApp = connect(mapStateToProps, mapDispachToProps)(App);
+// export { connectedApp as App };
+
+export { App };
 

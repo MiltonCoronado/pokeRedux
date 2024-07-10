@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { legacy_createStore as createStore } from 'redux'
 import './index.css'
 
-const storeReducerSwitch = createStore(reducerSwitch);
+const storeReducerSwitch = createStore(reducerSwitch, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -3,8 +3,8 @@ import { connect, useDispatch, useSelector } from 'react-redux';
 import { Col } from 'antd';
 import { Searcher } from './components/Searcher.jsx';
 import { PokemonList } from './components/PokemonList.jsx';
-import { getPokemon } from './api/api.jsx';
-import { setPokemonsActions } from './actions/creators.jsx';
+import { getPokemon, getPokemonDetails } from './api/api.jsx';
+import { setPokemons } from './actions/creators.jsx';
 import logo from './statics/logo.svg';
 import './App.css';
 
@@ -14,13 +14,15 @@ const App = () => {//({ pokemons, setPokemons }) con connect se usa props.
 
   useEffect(() => {
     const fetchPokemons = async () => {
-      const pokemonsResponse = await
-       getPokemon();
-       dispatch(setPokemonsActions(pokemonsResponse));
+      const pokemonsRes = await getPokemon();
+      const pokemonsDetailed = await Promise.all(// La Fn "Promise.all()" se usa para esperar que varias promesas se resuelvan. En el caso en la Fn "getPokemonDetails(item)". devuelve varios items de un objeto(varias promesas) pasandole un iterador como argumento y esto gracias a que la Fn. esta dentro de un .map() - Este seria un caso comun para usar "await promise.all()"
+        pokemonsRes.map((item) => getPokemonDetails(item))
+      );
+      dispatch(setPokemons(pokemonsDetailed));
     };
 
-    fetchPokemons(); 
-  }, [])
+    fetchPokemons();
+  }, []);
 
   return (
     <div className='App'>
@@ -30,7 +32,7 @@ const App = () => {//({ pokemons, setPokemons }) con connect se usa props.
       <Col span={8} offset={8}>
         <Searcher />
       </Col>
-      <PokemonList pokemonsArray={pokemons}/>
+      <PokemonList pokemons={pokemons}/>
     </div>
   )
 };

@@ -1,7 +1,7 @@
 import { SET_POKEMONS } from '../actions/types';
 
 const initialState = {
-  pokemons: [],//Este es el STATE.
+  pokemons: [],//Este es el STATE. del programa.
 };
 
 const reducerSwitch = (state = initialState, action) => {

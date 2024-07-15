@@ -1,12 +1,20 @@
 const getPokemon = () => {
-  return fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+  return fetch('https://pokeapi.co/api/v2/pokemon?limit=74')
   .then(response => response.json())
   .then(data => data.results)//Esto es lo que al final esta retornando mi feching de datos...
-  .catch(error => console.error(error))
+  .catch(error => console.error(error));
 };
 
 export { getPokemon };
 
+const getPokemonDetails = (item) => {
+  return fetch(item.url)
+  .then(response => response.json())
+  .then(data => data)
+  .catch(error => console.error(error));
+};
+
+export { getPokemonDetails };
 
 
 // export const getPokemons = async () => { 

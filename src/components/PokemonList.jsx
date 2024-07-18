@@ -10,6 +10,7 @@ const PokemonList = ({ pokemons = Array(12).fill('') }) => {//Estos son "paráme
           key={item.name}
           name={item.name}  
           image={item.sprites?.other["official-artwork"].front_default}
+          types={item.types}
         />
       })}
     </div>

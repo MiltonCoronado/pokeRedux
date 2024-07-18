@@ -4,7 +4,7 @@ import { Col, Spin } from 'antd';
 import { Searcher } from './components/Searcher.jsx';
 import { PokemonList } from './components/PokemonList.jsx';
 import { getPokemon } from './api/api.jsx';
-import { getPokemonsWithDetails, setLoading } from './actions/creators.jsx';
+import { getPokemonsWithDetails } from './actions/creators.jsx';
 import logo from './statics/logo.svg';
 import './App.css';
 
@@ -15,10 +15,8 @@ const App = () => {//({ pokemons, setPokemons }) con connect se usa props.
 
   useEffect(() => {
     const fetchPokemons = async () => {
-      
       const pokemonsResponse = await getPokemon();
       dispatch(getPokemonsWithDetails(pokemonsResponse));
-      
     };
 
     fetchPokemons();

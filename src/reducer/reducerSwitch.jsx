@@ -1,7 +1,7 @@
 import { SET_LOADING, SET_POKEMONS } from '../actions/types';
 
-const initialState = {
-  pokemons: [],//Este es el STATE. del programa.
+const initialState = {//Este es el STATE. del programa.
+  pokemons: [],
   loading: false,
 };
 

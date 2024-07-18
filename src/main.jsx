@@ -4,13 +4,13 @@ import { App } from './App.jsx';
 import { reducerSwitch } from './reducer/reducerSwitch.jsx';
 import { Provider } from 'react-redux';
 import { applyMiddleware, compose, legacy_createStore as createStore } from 'redux';
-import { logger, featuring } from './middlewares/middlewares.jsx';
-import './index.css'
+import { logger } from '../src/middlewares/middlewares.jsx';
+import { thunk } from 'redux-thunk';
+import './index.css';
 
-const composedEnhancer = compose( 
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), 
-  applyMiddleware(logger, featuring),
-);
+const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const composedEnhancer = composeAlt(applyMiddleware(thunk, logger));
 
 const storeReducerSwitch = createStore(reducerSwitch, composedEnhancer);
 

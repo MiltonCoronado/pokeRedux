@@ -1,3 +1,4 @@
 const SET_POKEMONS = 'SET_POKEMONS';
+const SET_LOADING = 'SET_LOADING';
 
-export { SET_POKEMONS };
+export { SET_POKEMONS, SET_LOADING };

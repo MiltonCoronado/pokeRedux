@@ -8,7 +8,7 @@ const getPokemon = () => {
 export { getPokemon };
 
 const getPokemonDetails = (item) => {
-  return fetch(item.url)
+  return fetch(item.url)//Hace un map e itera solo las url de cada objeto, ya luego resuelve todas las promesas.(para ello promise.all())
   .then(response => response.json())
   .then(data => data)
   .catch(error => console.error(error));

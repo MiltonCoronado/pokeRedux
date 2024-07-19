@@ -1,5 +1,5 @@
 import { getPokemonDetails } from '../api/api';
-import { SET_POKEMONS, SET_LOADING } from './types';
+import { SET_POKEMONS, SET_LOADING, SET_FAVORITE } from './types';
 
 const setPokemons = (payload) => ({//Los action creators son sincronos siempre...
   type: SET_POKEMONS,
@@ -11,7 +11,12 @@ const setLoading = (payload) => ({
   payload,
 });
 
-export { setPokemons, setLoading };
+const setFavorite = (payload) => ({
+  type: SET_FAVORITE,
+  payload,
+});
+
+export { setPokemons, setLoading, setFavorite };
 
 
 //Redux-Thunk: antes que nada Thunk es un concepto de programacion! ya despues es un midleware que es un enhancer que extiende las capacidades del store y nos permite escribir funciones asincronas. Thunk nos permite escribir action creators que son los que van a retornar esas funciones asincronas(por eso el dispatch como parametro en la Fn asincrona). por esto Redux-Thunk se escribe en este file.

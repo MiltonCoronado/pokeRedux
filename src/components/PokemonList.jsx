@@ -11,6 +11,8 @@ const PokemonList = ({ pokemons = Array(12).fill('') }) => {//Estos son "paráme
           name={item.name}  
           image={item.sprites?.other["official-artwork"].front_default}
           types={item.types}
+          id={item.id}
+          favorite={item.favorite}//cuando pasamos la prop "favorite" al componente PokemonCard, el valor de esta prop es undefined. ya que "favorite" no existe en la API.
         />
       })}
     </div>

@@ -9,7 +9,7 @@ const PokemonCard = ({ name, image, types, id, favorite }) => {
   const typesStrings = types.map(item => item.type.name).join(', ');
 
   const handleOnFavorite = () => {
-    dispatch(setFavorite({ pokemonId: id }))
+    dispatch(setFavorite({ id }))
   };
 
   return (

@@ -1,7 +1,7 @@
 import { getPokemonDetails } from '../api/api';
 import { SET_POKEMONS, SET_LOADING, SET_FAVORITE } from './types';
 
-const setPokemons = (payload) => ({//Los action creators son sincronos siempre...
+const setPokemons = (payload) => ({//Los action creators son sincronos siempre y con la estructura actual de mis action creator, estan diseñados para recibir objetos como payload. por eso que para acceder a ellos uso la sintaxis "action.payload.id" que es sintaxis de objetos!!
   type: SET_POKEMONS,
   payload,
 });

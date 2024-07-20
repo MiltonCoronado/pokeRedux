@@ -16,7 +16,7 @@ const reducerSwitch = (state = initialState, action) => {
       const newPokemonList = [...state.pokemons]
       const currentPokemonIndex = newPokemonList.findIndex(
         (item) => {
-          return item.id === action.payload.pokemonId//de donde sale pokemonId??????????????????????????????????????????????
+          return item.id === action.payload.id//"item.id" itera sobre todos los Ids de los pokemons, en el "action.payload.pokemonId" recibimos un valor que es dinamico y este es un Id. el cual es enviado al momento de dar click in the start of favorites.
         });
 
       if(currentPokemonIndex < 0){

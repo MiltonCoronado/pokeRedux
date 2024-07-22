@@ -4,7 +4,7 @@ import { reducerUI } from './reducerUI';
 
 const rootReducer = combineReducers({
   data: reducerSwitch,
-  ui: reducerUI,
+  ui: reducerUI
 });
 
 export { rootReducer };

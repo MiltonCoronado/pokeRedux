@@ -1,7 +1,7 @@
 import { SET_LOADING } from '../actions/types';
 
 const initialState = {//Este es el STATE. del programa.
-  loading: false,
+  loading: false
 };
 
 const reducerUI = (state = initialState, action) => {

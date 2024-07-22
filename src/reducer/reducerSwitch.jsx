@@ -23,14 +23,12 @@ const reducerSwitch = (state = initialState, action) => {
       const newPokemonList = state.pokemons.map((pokemon, index) =>
         index === currentPokemonIndex
           ? { ...pokemon, favorite: !pokemon.favorite }//Esta Fn es inmutable con el spread operator... que crea una nueva lista de pokemons con el pokemon actualizado
-          : pokemon
-      );
-      
+          : pokemon);
+
       return {
         ...state,//ya es inmutable con el spread operator...
         pokemons: newPokemonList,
       };
-
     default:
       return state;
   }

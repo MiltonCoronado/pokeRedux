@@ -8,7 +8,6 @@ import { logger } from '../src/middlewares/middlewares.jsx';
 import { thunk } from 'redux-thunk';
 import './index.css';
 
-
 const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const composedEnhancer = composeAlt(applyMiddleware(thunk, logger));

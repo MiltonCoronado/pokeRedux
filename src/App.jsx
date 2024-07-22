@@ -49,7 +49,6 @@ const App = () => {//({ pokemons, setPokemons }) con connect se usa props.
 //   setPokemons: (value) => dispatch(setPokemonsActions(value))
 // });
 
-
 // const connectedApp = connect(mapStateToProps, mapDispachToProps)(App);
 // export { connectedApp as App };
 

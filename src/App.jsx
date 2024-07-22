@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { connect, shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Col, Spin } from 'antd';
 import { Searcher } from './components/Searcher.jsx';
 import { PokemonList } from './components/PokemonList.jsx';
@@ -9,8 +9,8 @@ import logo from './statics/logo.svg';
 import './App.css';
 
 const App = () => {//({ pokemons, setPokemons }) con connect se usa props.
-  const pokemons = useSelector(state => state.pokemons);
-  const loading = useSelector(state => state.loading);//useSelector accede al estado y retorna la propiedad del estado a la que queremos acceder.
+  const pokemons = useSelector(state => state.data.pokemons, shallowEqual);//"shallowEqual" compara dos objetos para determinar si son iguales a nivel superficial, es decir, si tienen las mismas referencias a los objetos y las mismas propiedades de primer nivel con los mismos valores. Esto es importante ya que es la manera en que React evalúa si un componente debe actualizarse en base a cambios en el estado global. useSelector y shallowEqual se utilizan para optimizar el rendimiento evitando renders innecesarios si las referencias de los objetos seleccionados y las propiedades de primer nivel no han cambiado. Por lo tanto, shallowEqual ayuda a prevenir renders innecesarios al asegurar que los componentes solo se actualicen cuando detectan cambios significativos en las referencias de los objetos copiados.
+  const loading = useSelector(state => state.ui.loading);//useSelector accede al estado y retorna la propiedad del estado a la que queremos acceder.
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { SET_LOADING } from '../actions/types';
 
-const initialState = {//Este es el STATE. del programa.
+const initialState = {
   loading: false
 };
 

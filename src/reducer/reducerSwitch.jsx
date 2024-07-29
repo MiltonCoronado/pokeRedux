@@ -1,6 +1,6 @@
 import { SET_FAVORITE, SET_POKEMONS } from '../actions/types';
 
-const initialState = {//Este es el STATE. del programa.
+const initialState = {
   pokemons: [],
 };
 
@@ -20,10 +20,10 @@ const reducerSwitch = (state = initialState, action) => {
         return state;
       }
 
-      const newPokemonList = state.pokemons.map((pokemon, index) =>
+      const newPokemonList = state.pokemons.map((item, index) =>
         index === currentPokemonIndex
-          ? { ...pokemon, favorite: !pokemon.favorite }//Esta Fn es inmutable con el spread operator... que crea una nueva lista de pokemons con el pokemon actualizado
-          : pokemon);
+          ? { ...item, favorite: !item.favorite }//Esta Fn es inmutable con el spread operator... que crea una nueva lista de pokemons con el pokemon actualizado
+          : item);
 
       return {
         ...state,//ya es inmutable con el spread operator...

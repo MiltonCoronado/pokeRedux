@@ -11,12 +11,15 @@ const Searcher = () => {
   };
 
   return (
-    <Input.Search
-      placeholder="Buscar"
-      style={{ marginBottom: 20 }}
-      value={search}
-      onChange={handleChange}
-    />
+    <section style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color: 'blue'}}>
+      <h1>Buscar</h1>
+      <Input
+        placeholder="Buscar pokemon..."
+        style={{ marginBottom: 20 }}
+        value={search}
+        onChange={handleChange}
+      />
+    </section> 
   );
 };
 
